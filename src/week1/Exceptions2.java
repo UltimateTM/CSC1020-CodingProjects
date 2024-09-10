@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Exceptions2 {
     public static void main(String[] args) {
         try {
-            toUpper("44");
+            // toUpper("44");
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
