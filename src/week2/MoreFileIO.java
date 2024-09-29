@@ -39,7 +39,7 @@ public class MoreFileIO {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(objectFile))) {
             oos.writeObject(s);
             Object o = ois.readObject();
-            System.out.println((Student) o.getClass);
+            //System.out.println((Student) o.getClass);
         } catch (FileNotFoundException e) {
             System.err.println("Cannot find file");
         } catch (IOException e) {
