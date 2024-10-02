@@ -48,6 +48,11 @@ public class GLArrayList<E> implements List<E> {
     @Override
     public boolean contains(Object o) {
         // Will come back
+        for(int i = 0; i < size; ++i) {
+            if (data[i].equals(o)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -129,25 +134,51 @@ public class GLArrayList<E> implements List<E> {
 
     @Override
     public E get(int index) throws IndexOutOfBoundsException {
-        if (index >= size || index < 0) {
-            throw new IndexOutOfBoundsException("Index " + index + " is invalid for list of size " + size);
-        }
+        validateIndex(index);
         return data[index];
     }
 
-    @Override
-    public E set(int index, E element) {
-        return null;
+    private void validateIndex(int index) {
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException("Index " + index + " is invalid for list of size " + size);
+        }
     }
 
     @Override
-    public void add(int index, E element) {
-
+    public E set(int index, E element) throws IndexOutOfBoundsException {
+        validateIndex(index);
+        E tempVariable = data[index];
+        data[index] = element;
+        return tempVariable;
     }
 
     @Override
-    public E remove(int index) {
-        return null;
+    public void add(int index, E element) throws IndexOutOfBoundsException {
+        validateIndex(index);
+        if (size == capacity) {
+            reallocate();
+        }
+        // make room
+        for (int i = size - 1; i >= index; --i) {
+            data[i + 1] = data[i];
+        }
+        //insert
+        data[index] = element;
+        ++size;
+    }
+
+    @Override
+    public E remove(int index) throws IndexOutOfBoundsException{
+        validateIndex(index);
+        //shift stuff over
+        E tempVariable = data[index];
+
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        // return the value to be removed
+        --size;
+        return tempVariable;
     }
 
     @Override
