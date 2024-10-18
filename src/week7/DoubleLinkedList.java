@@ -481,16 +481,52 @@ public class DoubleLinkedList<E> implements List<E> {
     }
 
 
-    public boolean offer(E e) {
+    /**
+     * Adds to the tail of a list
+     * @param e object to be added
+     * @return true if operation completed
+     * @throws NullPointerException if object added is null
+     */
+    public boolean offer(E e) throws NullPointerException{
+        if (e == null) {
+            throw new NullPointerException();
+        }
 
+        if(head == null) {
+            head = new Node<>(e);
+            tail = head;
+        } else {
+            tail.next = new Node<>(e, tail, null);
+            tail = tail.next;
+        }
+        ++size;
+
+        return true;
     }
 
+    /**
+     * Return head of a list without removing element
+     * @return head
+     */
     public E peek() {
-
+        if (head == null) {
+            return null;
+        }
+        return head.data;
     }
 
+    /**
+     * Return head of a list without and removes element
+     * @return head
+     */
     public E poll() {
+        if (head == null) {
+            return null;
+        }
+        E temp = head.data;
+        head = head.next;
 
+        return temp;
     }
 
 }
