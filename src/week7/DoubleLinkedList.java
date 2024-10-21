@@ -481,7 +481,7 @@ public class DoubleLinkedList<E> implements List<E> {
     }
 
 
-    public boolean offer(E e) {
+  /*  public boolean offer(E e) {
 
     }
 
@@ -492,5 +492,5 @@ public class DoubleLinkedList<E> implements List<E> {
     public E poll() {
 
     }
-
+*/
 }
