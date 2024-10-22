@@ -41,6 +41,7 @@ public class BinarySearch {
         if (left > right) { // not there
             return -1;
         }
+
         if (arr[middle].compareTo(target) == 0) { // equal
             return middle;
             // recursive cases
@@ -52,5 +53,6 @@ public class BinarySearch {
             binarySearch2(arr, target, left, middle - 1);
         }
 
+        return binarySearch2(arr, target, left, middle - 1);
     }
 }
