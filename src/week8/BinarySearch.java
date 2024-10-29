@@ -20,7 +20,7 @@ public class BinarySearch {
         int right = arr.length - 1;
 
         while (left <= right) {
-            int middle = left + right / 2; // *IMPORTANT* determines middle of array no matter size of the array
+            int middle = (left + right) / 2; // *IMPORTANT* determines middle of array no matter size of the array
             if (arr[middle].compareTo(target) == 0) { // equal
                 return middle;
             } else if (arr[middle].compareTo(target) < 0) { // go right
@@ -34,7 +34,7 @@ public class BinarySearch {
 
     private static int binarySearch2(String[] arr, String target, int left, int right) {
         // when writing a recursive method, method takes as parameters variables that WILL CHANGE
-        int middle = left + right / 2;
+        int middle = (left + right) / 2;
 
 
         // base case
