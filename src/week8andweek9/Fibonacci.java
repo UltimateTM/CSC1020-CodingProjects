@@ -1,4 +1,4 @@
-package week8;
+package week8andweek9;
 
 public class Fibonacci {
     public static void main(String[] args) {
