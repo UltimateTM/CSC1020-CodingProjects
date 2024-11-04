@@ -1,4 +1,4 @@
-package week8andweek9;
+package week8;
 
 public class TreeDriver {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package week8andweek9;
+package week8;
 
 import java.util.Arrays;
 

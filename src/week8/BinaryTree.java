@@ -1,4 +1,4 @@
-package week8andweek9;
+package week8;
 
 import java.util.function.BiConsumer;
 
@@ -7,10 +7,10 @@ import java.util.function.BiConsumer;
  * @param <E>
  */
 public class BinaryTree<E> {
-    private static class Node<E> {
-        private E data;
-        private Node<E> left;
-        private Node<E> right;
+    protected static class Node<E> { // only time to use protected is to allow subclasses to be used in other classes
+        public E data;
+        public Node<E> left;
+        public Node<E> right;
 
         public Node (E data) {
             this.data = data;
@@ -24,11 +24,15 @@ public class BinaryTree<E> {
         }
     }
 
-    private Node<E> root;
+    protected Node<E> root;
 
     public BinaryTree() {
-        this((Node<E>) null);
+        root = null;
     }
+
+    /*public BinaryTree() {
+        this((Node<E>) null);
+    }*/
 
     public BinaryTree(Node<E> root) {
         this.root = root;
