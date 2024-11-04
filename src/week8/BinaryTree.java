@@ -114,16 +114,13 @@ public class BinaryTree<E> {
 
     private void preOrderTraversal(Node<E> node, BiConsumer<E, Integer> consumer, int depth) {
         // base case
-        if (node == null) {
-            // shouldnt technically do anything
-            //consumer.accept(null, depth); // basically does nothing
-        } else {
-            // visit root
+        if (node != null) {
             consumer.accept(node.data, depth);
             // go left
             preOrderTraversal(node.left, consumer, depth + 1);
             // go right
             preOrderTraversal(node.right, consumer, depth + 1);
+
         }
     }
 
@@ -137,10 +134,7 @@ public class BinaryTree<E> {
 
     private void inOrderTraversal(Node<E> node, BiConsumer<E, Integer> consumer, int depth) {
         // base case
-        if (node == null) {
-            // shouldnt technically do anything
-            //consumer.accept(null, depth); // basically does nothing
-        } else {
+        if (node != null) {
             // go left
             inOrderTraversal(node.left, consumer, depth + 1);
             // visit root

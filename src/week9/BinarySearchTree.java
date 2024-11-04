@@ -2,6 +2,7 @@ package week9;
 
 import week8.BinaryTree;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BinarySearchTree<E extends Comparable<E>>
@@ -161,6 +162,10 @@ public class BinarySearchTree<E extends Comparable<E>>
 
     @Override
     public List<E> toList() {
-        return List.of();
+
+        List<E> result = new ArrayList<>();
+        inOrderTraversal((data, depth) -> result.add(data));
+        return result;
+
     }
 }
